@@ -38,6 +38,12 @@ function optionsframework_options() {
 		'wide' => __('Wide', 'options_check')
 	);
 	
+	$install_text_size_array = array(
+		'h1' => __('h1', 'options_check'),
+		'h2' => __('h2', 'options_check'),
+		'h3' => __('h3', 'options_check')
+	);
+	
 	$wider_sidebar = array(
 		'1' => __('Yes', 'options_check'),
 		'0' => __('No', 'options_check')
@@ -124,7 +130,8 @@ function optionsframework_options() {
 			'default' => $imagepath . 'default-style.png',
 			'style1' => $imagepath . 'style1.png',
 			'style2' => $imagepath . 'style2.png',
-			'style3' => $imagepath . 'style3.png')
+			'style3' => $imagepath . 'style3.png',
+			'style4' => $imagepath . 'style4.png')
 	);			
 	
 	$options[] = array(
@@ -446,7 +453,7 @@ function optionsframework_options() {
 		'desc' => __('Code to add in footer.', 'options_check'),
 		'id' => 'code_for_wp_footer',
 		'std' => '',
-		'type' => 'textarea');		
+		'type' => 'textarea');
 		
 	$options[] = array(
 		'name' => __('Misc Settings', 'options_check'),
@@ -495,7 +502,216 @@ function optionsframework_options() {
 		'id' => 'display_post_page_nav',
 		'std' => '1',
 		'type' => 'checkbox');	
+	
+	$options[] = array(
+		'name' => __('I-Nex Settings', 'options_check'),
+		'type' => 'heading');
 		
+	$options[] = array(
+		'name' => __('I-Nex Version:', 'options_check'),
+		'id' => 'config_inex_app_version',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version Arch Linux:', 'options_check'),
+		'id' => 'config_inex_app_version_arch',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version Manjaro:', 'options_check'),
+		'id' => 'config_inex_app_version_manjaro',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version Linux Mint:', 'options_check'),
+		'id' => 'config_inex_app_version_linux_mint',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version Ubuntu:', 'options_check'),
+		'id' => 'config_inex_app_version_ubuntu',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version Fedora:', 'options_check'),
+		'id' => 'config_inex_app_version_fedora',
+		'std' => '',
+		'type' => 'text');
+
+        $options[] = array(
+		'name' => __('I-Nex Version OpenSUSE:', 'options_check'),
+		'id' => 'config_inex_app_version_opensuse',
+		'std' => '',
+		'type' => 'text');
+		
+	$options[] = array(
+		'name' => __('Install Text:', 'options_check'),
+		'id' => 'install_text',
+		'std' => '',
+		'type' => 'text');
+		
+	$options[] = array(
+		'desc' => __('Display Arch Linux Download.', 'options_check'),
+		'id' => 'display_arch_linux_download',
+		'std' => '1',
+		'type' => 'checkbox');
+	
+	$options[] = array(
+		'desc' => __('Display Manjaro Linux Download.', 'options_check'),
+		'id' => 'display_manjaro_linux_download',
+		'std' => '1',
+		'type' => 'checkbox');
+		
+	$options[] = array(
+		'desc' => __('Display Linux Mint Download.', 'options_check'),
+		'id' => 'display_linux_mint_download',
+		'std' => '1',
+		'type' => 'checkbox');
+
+        $options[] = array(
+		'desc' => __('Display Ubuntu Download.', 'options_check'),
+		'id' => 'display_ubuntu_download',
+		'std' => '1',
+		'type' => 'checkbox');
+		
+	$options[] = array(
+		'desc' => __('Display Fedora Download.', 'options_check'),
+		'id' => 'display_fedora_linux_download',
+		'std' => '1',
+		'type' => 'checkbox');
+	
+	$options[] = array(
+		'desc' => __('Display OpenSUSE Download.', 'options_check'),
+		'id' => 'display_opensuse_download',
+		'std' => '1',
+		'type' => 'checkbox');
+		
+	$options[] = array(
+		'desc' => __('Display Source Download.', 'options_check'),
+		'id' => 'display_source_download',
+		'std' => '1',
+		'type' => 'checkbox');
+	
+	$options[] = array(
+		'name' => __('Distro Stickers', 'options_check'),
+		'type' => 'heading');
+		
+	$options[] = array(
+		'name' => __('Arch Linux Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'arch_linux_sticker',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'name' => __('Manjaro Linux Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'manjaro_linux_sticker',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'name' => __('Linux Mint Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'linux_mint_sticker',
+		'type' => 'upload');
+        
+        $options[] = array(
+		'name' => __('Ubuntu Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'ubuntu_sticker',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'name' => __('Fedora Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'fedora_sticker',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'name' => __('OpenSUSE Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'opensuse_sticker',
+		'type' => 'upload');
+		
+	$options[] = array(
+		'name' => __('Source/Git Sticker', 'options_check'),
+		'desc' => __('', 'options_check'),
+		'id' => 'src_git_sticker',
+		'type' => 'upload');
+	
+	$options[] = array(
+		'name' => __('Install Text Instructions', 'options_check'),
+		'type' => 'heading' );
+
+	/**
+	 * For $settings options see:
+	 * http://codex.wordpress.org/Function_Reference/wp_editor
+	 *
+	 * 'media_buttons' are not supported as there is no post to attach items to
+	 * 'textarea_name' is set by the 'id' you choose
+	 */
+
+	$options[] = array(
+		'name' => __('Arch Linux Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for Arch Linux', 'options_check'),
+		'id' => 'arch_linux_install_instructions',
+		'type' => 'textarea');
+
+	$options[] = array(
+		'name' => __('Manjaro Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for Manjaro', 'options_check'),
+		'id' => 'manjaro_install_instructions',
+		'type' => 'textarea');
+	
+	$options[] = array(
+		'name' => __('Linux Mint Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for Linux Mint', 'options_check'),
+		'id' => 'linux_mint_install_instructions',
+		'type' => 'textarea');
+        
+        $options[] = array(
+		'name' => __('Ubuntu Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for Ubuntu', 'options_check'),
+		'id' => 'ubuntu_install_instructions',
+		'type' => 'textarea');
+		
+	$options[] = array(
+		'name' => __('Fedora Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for Fedora', 'options_check'),
+		'id' => 'fedora_install_instructions',
+		'type' => 'textarea');
+		
+	$options[] = array(
+		'name' => __('OpenSUSE Install Instructions', 'options_check'),
+		'desc' => __('Instalation instructions for OpenSUSE', 'options_check'),
+		'id' => 'opensuse_install_instructions',
+		'type' => 'textarea');
+	
+	$options[] = array(
+		'name' => __('Source Code Instructions', 'options_check'),
+		'desc' => __('Instructions for Source Code', 'options_check'),
+		'id' => 'source_code_install_instructions',
+		'type' => 'textarea');
+	
+	$options[] = array(
+		'name' => __('Banners', 'options_check'),
+		'type' => 'heading');
+		
+	$options[] = array(		
+		'desc' => __('Content Sidebar Banner.', 'options_check'),
+		'id' => 'content_sidebar_banner_code',
+		'std' => '',
+		'type' => 'textarea');
+	
+	$options[] = array(		
+		'desc' => __('Sidebar Content Banner.', 'options_check'),
+		'id' => 'sidebar_content_banner_code',
+		'std' => '',
+		'type' => 'textarea');	
 	
 	return $options;
 }

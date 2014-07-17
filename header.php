@@ -33,6 +33,59 @@
 	<?php
 	endif;
 ?>
+<style type="text/css">
+    /* Badger
+------------------------- */
+
+[class*="badger"] {
+    position: relative;
+    margin: 15px 0;
+    padding: 39px 19px 14px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+[class*="badger"]:after {
+    content: attr(data-badger);
+    position: absolute;
+    top: 0;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    background: #999;
+    color: #fff;
+}
+
+.badger-left:after {
+    left: 0;
+    border-radius: 6px 0 6px 0;
+}
+
+.badger-right:after {
+    right: 0;
+    border-radius: 0 6px 0 6px;
+}
+
+.badger-danger:after {
+    background: #d9534f;
+}
+
+.badger-warning:after {
+    background: #f0ad4e;
+}
+
+.badger-success:after {
+    background: #5cb85c;
+}
+
+.badger-info:after {
+    background: #5bc0de;
+}
+
+.badger-inverse:after {
+    background: #222;
+}    </style>
 <?php wp_head(); ?>
 </head>
 
@@ -159,13 +212,16 @@
 							'walker' => new openstrap_theme_navigation() ) ); ?>	
 		
 		<?php if(isset($display_nav_search) && $display_nav_search==true): ?> 	
-		<ul class="nav navbar-nav navbar-right visible-md visible-lg pull-right">
-			<li>
-				<form class="navbar-search navbar-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<input type="search" name="s" id="s" class="search-fields" placeholder="<?php esc_attr_e( 'Search', 'openstrap' ); ?>" name="s">
-				</form>
-			</li>
-		</ul>
+		<div class="col-sm-3 col-md-3 pull-right">
+		  <form class="navbar-search navbar-form" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		    <div class="input-group">
+		      <input type="text" class="form-control" placeholder="<?php esc_attr_e( 'Search', 'openstrap' ); ?>" name="s">
+		      <div class="input-group-btn">
+			<button class="btn btn-default" type="submit"><i class="icon-search"></i></button>
+		      </div>
+		    </div>
+		  </form>
+		</div>
 		<?php endif; ?>		
 							
         </div><!--/.nav-collapse -->
@@ -174,4 +230,3 @@
 
     <div class="container" id="main-container">
 	<div class="row" id="main-row">
-

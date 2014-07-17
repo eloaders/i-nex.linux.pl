@@ -42,7 +42,8 @@ class openstrap_socialiconbox_widget extends WP_Widget {
 					'show_rss_icon' => '', 
 					'rss_profile' => '',
 					'show_youtube_icon' => '', 
-					'youtube_profile' => '',					
+					'youtube_profile' => '',
+					'github_profile' => '',
 					'icon_style' => ''
 			);
 		}			
@@ -81,6 +82,9 @@ class openstrap_socialiconbox_widget extends WP_Widget {
 			//rss			
 			openstrap_widget_field( $this, array ('field' => 'show_youtube_icon', 'label' => __( 'Display Youtube Icon :', 'openstrap' ), 'type' => 'checkbox' ), $instance['show_youtube_icon'] );			
 			openstrap_widget_field( $this, array ('field' => 'youtube_profile', 'label' => __( 'Youtube Profile:', 'openstrap' ), 'type' => 'text' ), $instance['youtube_profile'] );
+			
+			openstrap_widget_field( $this, array ('field' => 'show_github_icon', 'label' => __( 'Display Github Icon :', 'openstrap' ), 'type' => 'checkbox' ), $instance['show_github_icon'] );			
+			openstrap_widget_field( $this, array ('field' => 'github_profile', 'label' => __( 'Github Profile:', 'openstrap' ), 'type' => 'text' ), $instance['github_profile'] );
 					
 			
 			openstrap_widget_field( $this, array ( 'field' => 'icon_style', 'type' => 'select', 
@@ -124,7 +128,10 @@ class openstrap_socialiconbox_widget extends WP_Widget {
 			
 			$instance['show_youtube_icon'] = $new_instance['show_youtube_icon'] ? 1 : 0;
 			$instance['youtube_profile'] = $new_instance['youtube_profile'];			
-
+			
+			$instance['show_github_icon'] = $new_instance['show_github_icon'] ? 1 : 0;
+			$instance['github_profile'] = $new_instance['github_profile'];
+			
 			$instance['icon_style'] = $new_instance['icon_style'];			
 
 			return $instance;
@@ -153,6 +160,7 @@ class openstrap_socialiconbox_widget extends WP_Widget {
 			$pinterest_profile = ! empty( $instance['pinterest_profile'] ) ? $instance['pinterest_profile'] : '';
 			$rss_profile = ! empty( $instance['rss_profile'] ) ? $instance['rss_profile'] : '';
 			$youtube_profile = ! empty( $instance['youtube_profile'] ) ? $instance['youtube_profile'] : '';
+			$github_profile = ! empty( $instance['github_profile'] ) ? $instance['github_profile'] : '';
 			
 			$icon_style = ! empty( $instance['icon_style'] ) ? $instance['icon_style'] : 'small';
 			
@@ -163,13 +171,14 @@ class openstrap_socialiconbox_widget extends WP_Widget {
 			<?php
 			if ( $title )
 			echo $before_title . $title . $after_title;				
-				if($show_facebook_icon): ?><li><a href="<?php echo esc_url($facebook_profile); ?>" ><i class="icon-facebook icon-<?php echo $icon_style;?>"></i></a> </li><?php endif; 
-				if($show_twitter_icon): ?> <li><a href="<?php echo esc_url($twitter_profile); ?>" ><i class="icon-twitter icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
-				if($show_googleplus_icon): ?> <li><a href="<?php echo esc_url($googleplus_profile); ?>" ><i class="icon-google-plus icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
-				if($show_linkedin_icon): ?> <li><a href="<?php echo esc_url($linkedin_profile); ?>" ><i class="icon-linkedin icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
-				if($show_pinterest_icon): ?> <li><a href="<?php echo esc_url($pinterest_profile); ?>" ><i class="icon-pinterest icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
+				if($show_facebook_icon): ?><li><a href="<?php echo esc_url($facebook_profile); ?>" target="_blank"><i class="icon-facebook icon-<?php echo $icon_style;?>"></i></a> </li><?php endif; 
+				if($show_twitter_icon): ?> <li><a href="<?php echo esc_url($twitter_profile); ?>" target="_blank"><i class="icon-twitter icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
+				if($show_googleplus_icon): ?> <li><a href="<?php echo esc_url($googleplus_profile); ?>" target="_blank"><i class="icon-google-plus icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
+				if($show_linkedin_icon): ?> <li><a href="<?php echo esc_url($linkedin_profile); ?>" target="_blank"><i class="icon-linkedin icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
+				if($show_pinterest_icon): ?> <li><a href="<?php echo esc_url($pinterest_profile); ?>" target="_blank"><i class="icon-pinterest icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
 				if($show_rss_icon): ?> <li><a href="<?php echo esc_url($rss_profile); ?>" ><i class="icon-rss icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
-				if($show_youtube_icon): ?> <li><a href="<?php echo esc_url($youtube_profile); ?>" ><i class="icon-youtube icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;											
+				if($show_youtube_icon): ?> <li><a href="<?php echo esc_url($youtube_profile); ?>" target="_blank"><i class="icon-youtube icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
+				if($show_github_icon): ?> <li><a href="<?php echo esc_url($github_profile); ?>" target="_blank"><i class="icon-github icon-<?php echo $icon_style;?>"></i></a> </li><?php endif;
 			?>	
 				</ul>
 			</div>

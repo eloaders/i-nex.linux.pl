@@ -13,44 +13,42 @@
 	$display_post_meta_info = of_get_option('display_post_meta_info');
 	$display_post_page_nav = of_get_option('display_post_page_nav');
 ?>
+<div class="badger-right badger-danger" data-badger="<?php wp_get_post_views_counter(); ?>">
 <article>
 	<header class="entry-header">
 		<hgroup>
-			<h1><?php the_title(); ?></h1>		
-			<?php if(!empty($display_post_meta_info)):?>		
-			<div class="post-meta entry-header">
-			
+			<div class="row">
+			  <div class="col-lg-12">
+			    <div class="thumbnail">
+			      <?php the_post_thumbnail('full'); ?>
+			      <div class="caption">
+				<h1><?php the_title(); ?></h1>		
+				<?php if(!empty($display_post_meta_info)):?>		
+				<div class="post-meta entry-header">
 				<?php if ( is_sticky() && is_home() && ! is_paged() ) : ?>
-					<span class="sticky"><i class="icon-pushpin"></i> <span class="badge"><?php _e( 'Sticky', 'openstrap' ); ?> </span></span>
+				  <span class="sticky"><i class="icon-pushpin"></i> <span class="badge"><?php _e( 'Sticky', 'openstrap' ); ?> </span></span>
 				<?php endif; ?>
-			
-				<?php
-						printf( __( '<span class="post_date"><i class="icon-calendar"></i> %2$s by %3$s', 'openstrap' ),'meta-prep meta-prep-author',
-						sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a></span>',
-						get_permalink(),
-						esc_attr( get_the_time() ),
-						get_the_date()
-						),
-						sprintf( '<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>',
-						get_author_posts_url( get_the_author_meta( 'ID' ) ),
-						sprintf( esc_attr__( 'View all posts by %s', 'openstrap' ), get_the_author() ),
-						get_the_author()
-						)
-						);
-					?>     
+				<?php printf( __( '<span class="post_date"><i class="icon-calendar"></i> %2$s by %3$s', 'openstrap' ),'meta-prep meta-prep-author',
+				      sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a></span>', get_permalink(), esc_attr( get_the_time() ), get_the_date()),
+				      sprintf( '<a class="url fn n" href="%1$s" title="%2$s">%3$s</a>', get_author_posts_url( get_the_author_meta( 'ID' ) ),
+				      sprintf( esc_attr__( 'View all posts by %s', 'openstrap' ), get_the_author() ), get_the_author()));
+				?>     
 				<div class="pull-right postcomments">					
-					<span class="post_comment"><i class="icon-comments"></i>
-					<a href="<?php the_permalink() ?>#comments"><?php comments_number(__('No comments', 'openstrap'),__('One comment','openstrap'),__('% comments','openstrap')); ?></a></span>
+				  <span class="post_comment"><i class="icon-comments"></i>
+				  <a href="<?php the_permalink() ?>#comments"><?php comments_number(__('No comments', 'openstrap'),__('One comment','openstrap'),__('% comments','openstrap')); ?></a></span>
 				</div>				
-			</div> 
-		<?php endif;?>
-		<hr class="post-meta-hr"/>			
-		</hgroup>
+			      </div> 
+			    <?php endif;?>
+			    <hr class="post-meta-hr"/>
+			    <div class="entry-content">
+	                       <?php the_content(); ?>
+	                    </div><!-- .entry-content -->
+	                </div>
+		      </div>
+                   </div>
+		 </div>
+           </hgroup>
 	</header>
-	
-	<div class="entry-content">
-	<?php the_content(); ?>
-	</div><!-- .entry-content -->	
 	<footer class="entry-meta">					
 		<p><?php wp_link_pages(); ?></p>
 		<hr/>
@@ -72,6 +70,7 @@
 		  </div>
 		  
 		  <div class="panel-body">
+                        <div class="col-lg-6">
 			<div class="cat-tag-info">
 				<div class="row">
 				<div class="col-md-12 post_cats">
@@ -87,7 +86,21 @@
 				</div>				
 				</div>
 				<?php endif;?>
-			</div>				
+			</div>		
+		        </div>
+                        <div class="col-lg-6">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-0617278559483692";
+/* Sredni prostok±t */
+google_ad_slot = "5533085182";
+google_ad_width = 300;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="//pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+                        </div>
 		  </div>
 		</div>	
 		<?php endif;?>	
@@ -97,3 +110,4 @@
 	</footer>
 
 </article>
+</div>

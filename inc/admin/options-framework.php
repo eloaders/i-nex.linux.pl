@@ -187,7 +187,6 @@ function optionsframework_load_styles() {
 		wp_register_style( 'wp-color-picker', OPTIONS_FRAMEWORK_DIRECTORY.'css/color-picker.min.css' );
 	}
 	wp_enqueue_style( 'wp-color-picker' );
-	wp_enqueue_style( 'theme-donations', OPTIONS_FRAMEWORK_DIRECTORY.'css/theme-donations.css' );
 }
 
 /* Loads the javascript */
@@ -258,7 +257,6 @@ function optionsframework_page() {
 	</div>
 	<?php do_action( 'optionsframework_after' ); ?>
 	</div> <!-- / .wrap -->
-	<?php include_once(dirname( __FILE__ ) . '/theme-donations.php');?>	
 <?php
 }
 endif;

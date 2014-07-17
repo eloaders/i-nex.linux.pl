@@ -31,5 +31,4 @@
 </div><!-- .author-avatar -->
 </div>
 </div><!-- .author-info -->	
-<?php endif; ?>	
-
+<?php endif; ?>

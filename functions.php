@@ -1002,6 +1002,7 @@ function openstrap_wp_footer() {
 }
 add_action( 'wp_footer', 'openstrap_wp_footer',100);
 
+/**
 add_filter('the_excerpt','openstrap_excerpt');
 function openstrap_excerpt(){
 	global $post;
@@ -1018,7 +1019,7 @@ function openstrap_excerpt_read_more($text) {
    return '  <span><a href="'.get_permalink().'" class="readmore">Continue reading &rarr;</a></span>';
 }
 add_filter('excerpt_more', 'openstrap_excerpt_read_more');
-
+*/
 function openstrap_custom_excerpt_length($length) {
 	return 85;
 }
